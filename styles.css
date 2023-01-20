@@ -1,0 +1,22 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sketchpad {
+    height: 400px;
+    width: 400px;
+
+    display: flex;
+    border-style: solid;
+}
+
+.sketchpad div {
+    min-height: 16px;
+    min-width: 16px;
+}
+
+.black {
+    background-color: black;
+}

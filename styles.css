@@ -1,6 +1,5 @@
 .sketchpad {
     display: flex;
-    flex-wrap: wrap;
 }
 
 .sketchpad div {

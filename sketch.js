@@ -41,6 +41,8 @@ function paint(square) {
 const createBtn = document.querySelector('button#create');
 
 createBtn.addEventListener('click', (e) => {
+    const sketchpad = document.querySelector('.sketchpad');
+    sketchpad.textContent = '';
     const parentNode = e.target.parentNode;
     const n = parentNode.querySelector('input#n').value;
     const m = parentNode.querySelector('input#m').value;

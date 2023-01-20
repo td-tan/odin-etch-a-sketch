@@ -9,3 +9,15 @@ for (let i = 0; i < 16; i++) {
     }
     sketchpad.appendChild(outer_div);
 }
+
+const squares = document.querySelectorAll('.square');
+
+squares.forEach((square) => {
+    square.addEventListener('mouseover', function(e) {
+        e.target.classList.add('black');
+    });
+
+    square.addEventListener('mouseout', function(e) {
+        e.target.classList.remove('black');
+    });
+});

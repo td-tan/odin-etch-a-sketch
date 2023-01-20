@@ -14,13 +14,18 @@ const squares = document.querySelectorAll('.square');
 
 let painting = false;
 
+let current_square = null;
+
 squares.forEach((square) => {
     square.addEventListener('mouseover', function(e) {
-        e.target.classList.add('black');
+        if (!e.target.classList.contains('black')) {
+            e.target.classList.add('black');
+            current_square = e.target;
+        }
     });
 
     square.addEventListener('mouseout', function(e) {
-        if (!painting) {
+        if (!painting && current_square === e.target) {
             e.target.classList.remove('black');
         }
     });

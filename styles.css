@@ -5,8 +5,8 @@ body {
 }
 
 .sketchpad {
-    height: 360px;
-    width: 360px;
+    height: 400px;
+    width: 400px;
 
     display: flex;
     border-style: solid;

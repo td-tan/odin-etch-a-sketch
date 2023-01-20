@@ -13,15 +13,7 @@ function createSketchpad(n, m) {
     }
 }
 
-createSketchpad(16, 16);
-
-const squares = document.querySelectorAll('.square');
-
-let painting = false;
-
-let current_square = null;
-
-squares.forEach((square) => {
+function hover(square) {
     square.addEventListener('mouseover', function(e) {
         if (!e.target.classList.contains('black')) {
             e.target.classList.add('black');
@@ -34,7 +26,19 @@ squares.forEach((square) => {
             e.target.classList.remove('black');
         }
     });
+}
 
+createSketchpad(16, 16);
+
+const squares = document.querySelectorAll('.square');
+
+let painting = false;
+
+let current_square = null;
+
+squares.forEach((square) => {
+    hover(square);
+    
     square.addEventListener('mousedown', function(e) {
         painting = true;
     });

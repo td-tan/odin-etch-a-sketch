@@ -6,6 +6,7 @@ body {
 
 .sketchpad {
     display: flex;
+    border-style: solid;
 }
 
 .sketchpad div {

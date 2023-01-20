@@ -1,0 +1,10 @@
+.sketchpad {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sketchpad div {
+    min-height: 16px;
+    min-width: 16px;
+    background-color: black;
+}

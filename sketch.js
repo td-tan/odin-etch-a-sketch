@@ -56,6 +56,11 @@ createBtn.addEventListener('click', (e) => {
     const parentNode = e.target.parentNode;
     const n = parentNode.querySelector('input#n').value;
     const m = parentNode.querySelector('input#m').value;
+
+    if (n > 100 || m > 100) {
+        return;
+    }
+
     createSketchpad(n, m);
 
     bindEvents();

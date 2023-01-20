@@ -28,6 +28,16 @@ function hover(square) {
     });
 }
 
+function paint(square) {
+    square.addEventListener('mousedown', function(e) {
+        painting = true;
+    });
+
+    square.addEventListener('mouseup', function(e) {
+        painting = false;
+    });
+}
+
 createSketchpad(16, 16);
 
 const squares = document.querySelectorAll('.square');
@@ -38,12 +48,6 @@ let current_square = null;
 
 squares.forEach((square) => {
     hover(square);
-    
-    square.addEventListener('mousedown', function(e) {
-        painting = true;
-    });
 
-    square.addEventListener('mouseup', function(e) {
-        painting = false;
-    });
+    paint(square)
 });

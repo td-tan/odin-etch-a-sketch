@@ -38,6 +38,16 @@ function paint(square) {
     });
 }
 
+function bindEvents() {
+    const squares = document.querySelectorAll('.square');
+
+    squares.forEach((square) => {
+        hover(square);
+
+        paint(square)
+    });
+}
+
 const createBtn = document.querySelector('button#create');
 
 createBtn.addEventListener('click', (e) => {
@@ -47,16 +57,11 @@ createBtn.addEventListener('click', (e) => {
     const n = parentNode.querySelector('input#n').value;
     const m = parentNode.querySelector('input#m').value;
     createSketchpad(n, m);
-});
 
-const squares = document.querySelectorAll('.square');
+    bindEvents();
+});
 
 let painting = false;
 
 let current_square = null;
 
-squares.forEach((square) => {
-    hover(square);
-
-    paint(square)
-});

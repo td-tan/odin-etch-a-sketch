@@ -38,7 +38,14 @@ function paint(square) {
     });
 }
 
-createSketchpad(16, 16);
+const createBtn = document.querySelector('button#create');
+
+createBtn.addEventListener('click', (e) => {
+    const parentNode = e.target.parentNode;
+    const n = parentNode.querySelector('input#n').value;
+    const m = parentNode.querySelector('input#m').value;
+    createSketchpad(n, m);
+});
 
 const squares = document.querySelectorAll('.square');
 

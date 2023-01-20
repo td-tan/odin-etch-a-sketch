@@ -12,12 +12,24 @@ for (let i = 0; i < 16; i++) {
 
 const squares = document.querySelectorAll('.square');
 
+let painting = false;
+
 squares.forEach((square) => {
     square.addEventListener('mouseover', function(e) {
         e.target.classList.add('black');
     });
 
     square.addEventListener('mouseout', function(e) {
-        e.target.classList.remove('black');
+        if (!painting) {
+            e.target.classList.remove('black');
+        }
+    });
+
+    square.addEventListener('mousedown', function(e) {
+        painting = true;
+    });
+
+    square.addEventListener('mouseup', function(e) {
+        painting = false;
     });
 });

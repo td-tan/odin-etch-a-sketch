@@ -7,6 +7,8 @@ function createSketchpad(n, m) {
         for(let j = 0; j < m; j++) {
             const inner_div = document.createElement('div');
             inner_div.classList.add('square');
+            inner_div.style.width = `${400/n}px`;
+            inner_div.style.height = `${400/m}px`;
             outer_div.appendChild(inner_div);
         }
         sketchpad.appendChild(outer_div);

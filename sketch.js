@@ -51,6 +51,7 @@ function bindEvents() {
 }
 
 const createBtn = document.querySelector('button#create');
+const clearBtn = document.querySelector('button#clear');
 
 createBtn.addEventListener('click', (e) => {
     const sketchpad = document.querySelector('.sketchpad');
@@ -66,6 +67,15 @@ createBtn.addEventListener('click', (e) => {
     createSketchpad(n, m);
 
     bindEvents();
+});
+
+clearBtn.addEventListener('click', () => {
+    const sketchpad = document.querySelectorAll('.square');
+    sketchpad.forEach((square) => {
+        if (square.classList.contains('black')) {
+            square.classList.remove('black');
+        }
+    });
 });
 
 let painting = false;

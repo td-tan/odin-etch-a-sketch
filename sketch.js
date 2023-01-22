@@ -50,6 +50,16 @@ function bindEvents() {
     });
 }
 
+function activeBtn(target) {
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach((button) => {
+        if (button.classList.contains('active')) {
+            button.classList.remove('active');
+        }
+    });
+    target.classList.add('active');
+}
+
 const createBtn = document.querySelector('button#create');
 const clearBtn = document.querySelector('button#clear');
 const slider = document.querySelector('.slider');
@@ -62,13 +72,7 @@ createBtn.addEventListener('click', (e) => {
 
     bindEvents();
 
-    const buttons = document.querySelectorAll('button');
-    buttons.forEach((button) => {
-        if (button.classList.contains('active')) {
-            button.classList.remove('active');
-        }
-    });
-    e.target.classList.add('active');
+    activeBtn(e.target);
 });
 
 clearBtn.addEventListener('click', (e) => {
@@ -79,13 +83,7 @@ clearBtn.addEventListener('click', (e) => {
         }
     });
 
-    const buttons = document.querySelectorAll('button');
-    buttons.forEach((button) => {
-        if (button.classList.contains('active')) {
-            button.classList.remove('active');
-        }
-    });
-    e.target.classList.add('active');
+    activeBtn(e.target);
 });
 
 slider.addEventListener('input', (e) => {

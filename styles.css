@@ -4,6 +4,11 @@ body {
     align-items: center;
 }
 
+main {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
 .sketchpad {
     height: 400px;
     width: 400px;

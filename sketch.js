@@ -17,15 +17,15 @@ function createSketchpad(n, m) {
 
 function hover(square) {
     square.addEventListener('mouseover', function(e) {
-        if (!e.target.classList.contains('black')) {
-            e.target.classList.add('black');
+        if (!e.target.classList.contains(paintClr)) {
+            e.target.classList.add(paintClr);
             current_square = e.target;
         }
     });
 
     square.addEventListener('mouseout', function(e) {
         if (!painting && current_square === e.target) {
-            e.target.classList.remove('black');
+            e.target.classList.remove(paintClr);
         }
     });
 }
@@ -99,6 +99,8 @@ slider.addEventListener('input', (e) => {
 let dimension = 50;
 
 let painting = false;
+
+let paintClr = 'black';
 
 let current_square = null;
 

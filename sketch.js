@@ -52,6 +52,7 @@ function bindEvents() {
 
 const createBtn = document.querySelector('button#create');
 const clearBtn = document.querySelector('button#clear');
+const slider = document.querySelector('.slider');
 
 createBtn.addEventListener('click', (e) => {
     const sketchpad = document.querySelector('.sketchpad');
@@ -77,6 +78,14 @@ clearBtn.addEventListener('click', () => {
         }
     });
 });
+
+slider.addEventListener('input', (e) => {
+    dimension = e.target.value;
+    const dimension_value = document.querySelector('#dimension-value');
+    dimension_value.textContent = `${dimension} x ${dimension}`;
+})
+
+let dimension = 50;
 
 let painting = false;
 

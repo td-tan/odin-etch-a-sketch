@@ -52,6 +52,18 @@ button:hover, .active {
     border-radius: 12px;
 }
 
+button#color {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#colorChoice {
+    width: 16px;
+    height: 16px;
+    border-radius: 25px;
+}
+
 .black {
     background-color: black;
 }

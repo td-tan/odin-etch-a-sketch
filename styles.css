@@ -29,6 +29,14 @@ main {
     gap: 10px;
 }
 
+button {
+    width: 100px;
+    height: 25px;
+    border-style: solid;
+    border-radius: 15px;
+    background-color: white;
+}
+
 .black {
     background-color: black;
 }

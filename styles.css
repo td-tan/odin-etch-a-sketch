@@ -1,7 +1,12 @@
+html, body {
+    height: 100%;
+}
+
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
 
     background-color: #e3ddc7;
 }
@@ -9,6 +14,19 @@ body {
 header div#title {
     font-size: 20px;
     font-weight: bold;
+}
+
+footer {
+    width: 100%;
+    background-color: #bacbcf;
+
+    display: flex;
+    justify-content: center;
+}
+
+footer img#github-profile {
+    width: 50px;
+    height: 50px;
 }
 
 main {

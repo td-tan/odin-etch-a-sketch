@@ -61,15 +61,31 @@ createBtn.addEventListener('click', (e) => {
     createSketchpad(dimension, dimension);
 
     bindEvents();
+
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach((button) => {
+        if (button.classList.contains('active')) {
+            button.classList.remove('active');
+        }
+    });
+    e.target.classList.add('active');
 });
 
-clearBtn.addEventListener('click', () => {
+clearBtn.addEventListener('click', (e) => {
     const sketchpad = document.querySelectorAll('.square');
     sketchpad.forEach((square) => {
         if (square.classList.contains('black')) {
             square.classList.remove('black');
         }
     });
+
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach((button) => {
+        if (button.classList.contains('active')) {
+            button.classList.remove('active');
+        }
+    });
+    e.target.classList.add('active');
 });
 
 slider.addEventListener('input', (e) => {

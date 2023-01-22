@@ -15,17 +15,19 @@ function createSketchpad(n, m) {
     }
 }
 
+let i = 1;
+
 function hover(square) {
     square.addEventListener('mouseover', function(e) {
-        if (!e.target.classList.contains('black')) {
-            e.target.classList.add('black');
-            current_square = e.target;
+        if(rainbowEnabled) {
+            if (i > colors.length) {
+                i = 1;
+            }
+            paintClr = colors[i++];
         }
-    });
-
-    square.addEventListener('mouseout', function(e) {
-        if (!painting && current_square === e.target) {
-            e.target.classList.remove('black');
+        if (painting) {
+            e.target.className = 'square';
+            e.target.classList.add(paintClr);
         }
     });
 }
@@ -50,35 +52,74 @@ function bindEvents() {
     });
 }
 
+function activeBtn(target) {
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach((button) => {
+        if (button.classList.contains('active')) {
+            button.classList.remove('active');
+        }
+    });
+    target.classList.add('active');
+}
+
 const createBtn = document.querySelector('button#create');
 const clearBtn = document.querySelector('button#clear');
+const rainbowBtn = document.querySelector('button#rainbow');
+const colorBtn = document.querySelector('button#color');
+const slider = document.querySelector('.slider');
 
 createBtn.addEventListener('click', (e) => {
     const sketchpad = document.querySelector('.sketchpad');
     sketchpad.textContent = '';
-    const parentNode = e.target.parentNode;
-    const n = parentNode.querySelector('input#n').value;
-    const m = parentNode.querySelector('input#m').value;
 
-    if (n > 100 || m > 100) {
-        return;
-    }
-
-    createSketchpad(n, m);
+    createSketchpad(dimension, dimension);
 
     bindEvents();
+
 });
 
-clearBtn.addEventListener('click', () => {
+clearBtn.addEventListener('click', (e) => {
     const sketchpad = document.querySelectorAll('.square');
     sketchpad.forEach((square) => {
-        if (square.classList.contains('black')) {
-            square.classList.remove('black');
+        if (square.classList.length > 1) {
+            square.className = 'square';
         }
     });
+
 });
+
+rainbowBtn.addEventListener('click', (e) => {
+    rainbowEnabled = true;
+
+    activeBtn(e.target);
+});
+
+colorBtn.addEventListener('click', (e) => {
+    rainbowEnabled = false;
+    const colorChoice = e.target.querySelector('#colorChoice');
+    if (i > colors.length) {
+        i = 0;
+    }
+    colorChoice.className = colors[i++];
+    paintClr = colorChoice.className;
+
+    activeBtn(e.target);
+});
+
+slider.addEventListener('input', (e) => {
+    dimension = e.target.value;
+    const dimension_value = document.querySelector('#dimension-value');
+    dimension_value.textContent = `${dimension} x ${dimension}`;
+})
+
+let dimension = 50;
 
 let painting = false;
 
+let paintClr = 'black';
+
+let rainbowEnabled = false;
+
 let current_square = null;
 
+const colors = ['black', 'red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];

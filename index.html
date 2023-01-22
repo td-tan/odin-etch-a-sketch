@@ -11,15 +11,20 @@
     <header>
         <div id="title">You Are Welcome To Etch A Sketch</div>
     </header>
-    <div class="sketchpad"></div>
-    <div class="settings">
-        <button id="clear">Clear Sketch</button>
-        <button id="create">Create Grid</button>
-        <label for="n">N:</label>
-        <input type="number" id="n" name="n">
-        <label for="m">M:</label>
-        <input type="number" id="m" name="m">
-    </div>
+    <main>
+        <div class="sketchpad"></div>
+        <div class="settings">
+            <button id="color"><div id="colorChoice" class="black"></div></button>
+            <button id="rainbow">Rainbow</button>
+            <button id="clear">Clear Sketch</button>
+            <button id="create">Create Grid</button>
+            <input type="range" min="1" max="100" value="50" class="slider" id="dimension">
+            <div id="dimension-value">50 x 50</div>
+        </div>
+    </main>
+    <footer>
+        <a class="profiles" href="https://github.com/td-tan/odin-rock-paper-scissors"><img id="github-profile" src="resources/github-mark.png" alt="Github Profile"></a>
+    </footer>
     <script src="sketch.js"></script>
 </body>
 </html>

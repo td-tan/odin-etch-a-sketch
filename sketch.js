@@ -17,15 +17,9 @@ function createSketchpad(n, m) {
 
 function hover(square) {
     square.addEventListener('mouseover', function(e) {
-        if (!e.target.classList.contains(paintClr)) {
+        if (painting) {
+            e.target.className = 'square';
             e.target.classList.add(paintClr);
-            current_square = e.target;
-        }
-    });
-
-    square.addEventListener('mouseout', function(e) {
-        if (!painting && current_square === e.target) {
-            e.target.classList.remove(paintClr);
         }
     });
 }

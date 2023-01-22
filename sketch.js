@@ -72,7 +72,6 @@ createBtn.addEventListener('click', (e) => {
 
     bindEvents();
 
-    activeBtn(e.target);
 });
 
 clearBtn.addEventListener('click', (e) => {
@@ -83,7 +82,6 @@ clearBtn.addEventListener('click', (e) => {
         }
     });
 
-    activeBtn(e.target);
 });
 
 slider.addEventListener('input', (e) => {

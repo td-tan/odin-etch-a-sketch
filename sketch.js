@@ -62,6 +62,7 @@ function activeBtn(target) {
 
 const createBtn = document.querySelector('button#create');
 const clearBtn = document.querySelector('button#clear');
+const rainbowBtn = document.querySelector('button#rainbow');
 const slider = document.querySelector('.slider');
 
 createBtn.addEventListener('click', (e) => {
@@ -82,6 +83,11 @@ clearBtn.addEventListener('click', (e) => {
         }
     });
 
+});
+
+rainbowBtn.addEventListener('click', (e) => {
+
+    activeBtn(e.target);
 });
 
 slider.addEventListener('input', (e) => {

@@ -40,6 +40,14 @@ button {
     background-color: linen;
 }
 
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    background: white;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
 .black {
     background-color: black;
 }

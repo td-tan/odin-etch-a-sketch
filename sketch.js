@@ -81,8 +81,8 @@ createBtn.addEventListener('click', (e) => {
 clearBtn.addEventListener('click', (e) => {
     const sketchpad = document.querySelectorAll('.square');
     sketchpad.forEach((square) => {
-        if (square.classList.contains('black')) {
-            square.classList.remove('black');
+        if (square.classList.length > 1) {
+            square.className = 'square';
         }
     });
 

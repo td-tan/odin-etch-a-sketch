@@ -15,8 +15,17 @@ function createSketchpad(n, m) {
     }
 }
 
+let i = 0;
+
 function hover(square) {
     square.addEventListener('mouseover', function(e) {
+        if(rainbowEnabled) {
+            const rainbow = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+            if (i > rainbow.length) {
+                i = 0;
+            }
+            paintClr = rainbow[i++];
+        }
         if (painting) {
             e.target.className = 'square';
             e.target.classList.add(paintClr);
@@ -80,6 +89,7 @@ clearBtn.addEventListener('click', (e) => {
 });
 
 rainbowBtn.addEventListener('click', (e) => {
+    rainbowEnabled = true;
 
     activeBtn(e.target);
 });
@@ -95,6 +105,8 @@ let dimension = 50;
 let painting = false;
 
 let paintClr = 'black';
+
+let rainbowEnabled = false;
 
 let current_square = null;
 

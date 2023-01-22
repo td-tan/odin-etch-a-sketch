@@ -20,11 +20,6 @@ main {
     background-color: white;
 }
 
-.sketchpad div {
-    min-height: 16px;
-    min-width: 16px;
-}
-
 .settings {
     display: flex;
     flex-direction: column;

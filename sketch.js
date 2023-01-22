@@ -57,15 +57,8 @@ const slider = document.querySelector('.slider');
 createBtn.addEventListener('click', (e) => {
     const sketchpad = document.querySelector('.sketchpad');
     sketchpad.textContent = '';
-    const parentNode = e.target.parentNode;
-    const n = parentNode.querySelector('input#n').value;
-    const m = parentNode.querySelector('input#m').value;
 
-    if (n > 100 || m > 100) {
-        return;
-    }
-
-    createSketchpad(n, m);
+    createSketchpad(dimension, dimension);
 
     bindEvents();
 });

@@ -15,16 +15,15 @@ function createSketchpad(n, m) {
     }
 }
 
-let i = 0;
+let i = 1;
 
 function hover(square) {
     square.addEventListener('mouseover', function(e) {
         if(rainbowEnabled) {
-            const rainbow = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
-            if (i > rainbow.length) {
-                i = 0;
+            if (i > colors.length) {
+                i = 1;
             }
-            paintClr = rainbow[i++];
+            paintClr = colors[i++];
         }
         if (painting) {
             e.target.className = 'square';
@@ -66,6 +65,7 @@ function activeBtn(target) {
 const createBtn = document.querySelector('button#create');
 const clearBtn = document.querySelector('button#clear');
 const rainbowBtn = document.querySelector('button#rainbow');
+const colorBtn = document.querySelector('button#color');
 const slider = document.querySelector('.slider');
 
 createBtn.addEventListener('click', (e) => {
@@ -94,6 +94,18 @@ rainbowBtn.addEventListener('click', (e) => {
     activeBtn(e.target);
 });
 
+colorBtn.addEventListener('click', (e) => {
+    rainbowEnabled = false;
+    const colorChoice = e.target.querySelector('#colorChoice');
+    if (i > colors.length) {
+        i = 0;
+    }
+    colorChoice.className = colors[i++];
+    paintClr = colorChoice.className;
+
+    activeBtn(e.target);
+});
+
 slider.addEventListener('input', (e) => {
     dimension = e.target.value;
     const dimension_value = document.querySelector('#dimension-value');
@@ -110,3 +122,4 @@ let rainbowEnabled = false;
 
 let current_square = null;
 
+const colors = ['black', 'red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];

@@ -97,7 +97,7 @@ rainbowBtn.addEventListener('click', (e) => {
 colorBtn.addEventListener('click', (e) => {
     rainbowEnabled = false;
     const colorChoice = e.target.querySelector('#colorChoice');
-    if (i > colors.length) {
+    if (i > colors.length-1) {
         i = 0;
     }
     colorChoice.className = colors[i++];
